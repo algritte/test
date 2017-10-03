@@ -5,6 +5,8 @@ import string
 #10128292
 #T03
 
+
+
 #Function uses command line arguments to change tabs to spaces and spaces to tabs (-t and +t) and/or makes visible invisible characters (-v and +v).  Tab size can also be changed by entering -T<tab length> so long as tab length is between 2 and 8.  Limitation: if file has already been formatted by a +v operation, it will be changed again if +v is run again on the output.
 
 #global variables

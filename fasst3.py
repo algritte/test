@@ -226,6 +226,10 @@ def apply_arg(flag, t, v, T):
             print(paragraph)
         else:
             pass
+          
+          
+ def v1c0():
+  pass
 
 
 

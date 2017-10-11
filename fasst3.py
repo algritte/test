@@ -9,7 +9,7 @@ import string
 
 #global variables
 
-EOF = chr(4)            
+EOF = chr(5)            
 TAB_CHAR = chr(187)     
                        
 SPACE_CHAR = chr(183)  

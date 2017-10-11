@@ -5,8 +5,6 @@ import string
 #10128292
 #T03
 
-
-
 #Function uses command line arguments to change tabs to spaces and spaces to tabs (-t and +t) and/or makes visible invisible characters (-v and +v).  Tab size can also be changed by entering -T<tab length> so long as tab length is between 2 and 8.  Limitation: if file has already been formatted by a +v operation, it will be changed again if +v is run again on the output.
 
 #global variables
@@ -149,84 +147,73 @@ def main():
                     flag=False
 
 
-    apply_arg(flag, t, v, T)
+    set(flag, t, v, T)
                 
 
 #Acts on command line arguments (call functions) if flag is true (eg no error).
 def apply_arg(flag, t, v, T):
     if(flag==True):
         if(t==1)and(v==0):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
+
                 output=plust(line, T)+("\n")
-                paragraph=paragraph+output
-                line=getInput()
-            print(paragraph)
+
         elif(t==-1)and(v==0):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
+ 
                 output=minust(line, T)+("\n")
-                paragraph=paragraph+output
-                line=getInput()
-            print(paragraph)
+
         elif(v==1)and(t==0):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
-                output=(line)+("\n")
-                output2=plusv(output)
-                paragraph=paragraph+output2
-                line=getInput()
-            print(paragraph)
+ 
+                output1=(line)+("\n")
+                output=plusv(output)
+
         elif(v==-1)and(t==0):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
+ 
                 output=minusv(line)+("\n")
-                paragraph=paragraph+output
-                line=getInput()
-            print(paragraph)
+
         elif(v==-1)and(t==-1):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
-                output=minust(line, T)+("\n")
-                output2=minusv(output)
-                paragraph=paragraph+output2
-                line=getInput()
-            print(paragraph)
+
+                output1=minust(line, T)+("\n")
+                output=minusv(output)
+
         elif(v==-1)and(t==+1):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
-                output=plust(line, T)+("\n")
-                output2=minusv(output)
-                paragraph=paragraph+output2
-                line=getInput()
-            print(paragraph)
+
+                output1=plust(line, T)+("\n")
+                output=minusv(output)
+
         elif(v==+1)and(t==-1):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
-                output=minust(line, T)+("\n")
-                output2=plusv(output)
-                paragraph=paragraph+output2
-                line=getInput()
-            print(paragraph)
+
+                output1=minust(line, T)+("\n")
+                output=plusv(output)
+
         elif(v==+1)and(t==+1):
-            paragraph=""
-            line=getInput()
-            while line!=EOF:
-                output=plust(line, T)+("\n")
-                output2=plusv(output)
-                paragraph=paragraph+output2
-                line=getInput()
-            print(paragraph)
+
+                output1=plust(line, T)+("\n")
+                output=plusv(output)
+ 
         else:
             pass
 
+	return output
+
+
+def set(flag, t, v, T):
+
+            paragraph=""
+            line=getInput()
+            while line!=EOF:
+ 
+		output=apply_arg(flag, t, v, T)
+
+                paragraph=paragraph+output
+                line=getInput()
+            print(paragraph)
+
+
+
+
+def tab_length():
+
+	
 
 
 main()
